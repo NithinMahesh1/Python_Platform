@@ -1,5 +1,5 @@
 import tkinter as tk
-import jarvis
+import nueron
 from tkinter import *
 from PIL import Image, ImageTk
 
@@ -10,8 +10,9 @@ photo = ImageTk.PhotoImage(img)
 
 
 def jarvisButtonClick():
+    # TODO this will be where we pass in values to the nueron
     print("clicked")
-    jarvis.testing()
+    nueron.node()
 
 
 button = tk.Button(image=photo, height=100, width=100, command=jarvisButtonClick, text="ok")
