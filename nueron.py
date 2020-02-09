@@ -1,7 +1,6 @@
 from openpyxl import Workbook
 
-
-def node():
+def trainingSet():
     print("Connection successful")
 
     # TODO Creating data set
@@ -29,11 +28,29 @@ def node():
 
     count = 0
     val = input("Enter your a number for input values: ")
+
+    if val == "q":
+        exit()
+
     print("printing letters... " + val)
 
     for i in range(int(val)):
         count = count + 1
         sheet['A' + str(count)] = "G"
 
+    book.save("test.xlsx")
+    exit()
 
-    book.save("trainingSet.xlsx")
+
+def testingSet():
+    print("Connection Successful")
+
+    val = input("Enter a number to generate random letters: ")
+    print(val)
+
+    if val == "q":
+        exit()
+
+
+def node():
+    print("Connection Successful")

@@ -11,9 +11,25 @@ photo = ImageTk.PhotoImage(img)
 
 def jarvisButtonClick():
     # TODO this will be where we pass in values to the nueron
-    print("clicked")
-    nueron.node()
 
+    print("Select from Program List: ")
+    print("training")
+    print("testing")
+    print("run node")
+    print("Hit 'q' to exit")
+    print("")
+    askUser = input("Select what program: ")
+
+
+    if askUser == "training":
+        nueron.trainingSet()
+
+    if askUser == "testing":
+        nueron.testingSet()
+
+    if askUser == "q":
+        print("termination in progress... ")
+        exit()
 
 button = tk.Button(image=photo, height=100, width=100, command=jarvisButtonClick, text="ok")
 button.pack()
