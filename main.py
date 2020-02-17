@@ -27,6 +27,9 @@ def jarvisButtonClick():
     if askUser == "testing":
         nueron.testingSet()
 
+    if askUser == "run node":
+        nueron.node()
+
     if askUser == "q":
         print("termination in progress... ")
         exit()

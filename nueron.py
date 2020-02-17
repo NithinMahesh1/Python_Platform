@@ -1,4 +1,5 @@
 from openpyxl import Workbook
+import random
 
 def trainingSet():
     print("Connection successful")
@@ -24,7 +25,7 @@ def trainingSet():
     # be the teacher.
 
     book = Workbook()
-    sheet = book.active
+    trainingSheet = book.active
 
     count = 0
     val = input("Enter your a number for input values: ")
@@ -36,7 +37,7 @@ def trainingSet():
 
     for i in range(int(val)):
         count = count + 1
-        sheet['A' + str(count)] = "G"
+        trainingSheet['A' + str(count)] = "G"
 
     book.save("test.xlsx")
     exit()
@@ -45,12 +46,24 @@ def trainingSet():
 def testingSet():
     print("Connection Successful")
 
+    book = Workbook()
+    testingSheet = book.active
+    count = 0
+
     val = input("Enter a number to generate random letters: ")
-    print(val)
+
+    letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     if val == "q":
         exit()
 
+    for i in range(int(val)):
+        count = count + 1
+        testingSheet['A' + str(count)] = str(random.choice(letters))
+
+    book.save("testingSet.xlsx")
+    exit()
 
 def node():
     print("Connection Successful")
+
