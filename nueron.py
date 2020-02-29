@@ -62,18 +62,63 @@ def testingSet():
             testingSheet['B' + str(count)] = 'Y'
         testingSheet['A' + str(count)] = ramdomLetter
 
-    workbook = xlrd.open_workbook('testingSet.xlsx')
-
-
     book.save("testingSet.xlsx")
     exit()
 
 def expectedResults():
     # TODO this is where we will create an expected output for training set
     # TODO also create another training set to give random letters but also if its a G give output of yes
-
     book = Workbook()
 
-
 def node():
-    print("Connection Successful")
+    val = input("Enter the name of the worksheet to give node: ")
+
+    if val == 'q':
+        exit()
+
+    book = xlrd.open_workbook(val)
+    sheet = book.sheet_by_name('Sheet')
+
+    dictionary = {
+        'A': '0.5',
+        'B': '0.5',
+        'C': '0.5',
+        'D': '0.5',
+        'E': '0.5',
+        'F': '0.5',
+        'G': '0.5',
+        'H': '0.5',
+        'I': '0.5',
+        'J': '0.5',
+        'K': '0.5',
+        'L': '0.5',
+        'M': '0.5',
+        'N': '0.5',
+        'O': '0.5',
+        'P': '0.5',
+        'Q': '0.5',
+        'R': '0.5',
+        'S': '0.5',
+        'T': '0.5',
+        'U': '0.5',
+        'V': '0.5',
+        'W': '0.5',
+        'X': '0.5',
+        'Y': '0.5',
+        'Z': '0.5'
+    }
+
+    for cell in sheet.col(0):
+        letter = cell.value
+        dictionary[letter] = str(float(dictionary[letter]) + 0.1)
+
+
+    exit()
+
+def teacher():
+    workbook = xlrd.open_workbook("trainingSet.xlsx")
+
+    sheet = workbook.sheet_by_name('Sheet')
+
+    # for cell in sheet.col(1):
+    #     print(cell.value)

@@ -17,6 +17,7 @@ def jarvisButtonClick():
     print("testing")
     print("run node")
     print("results")
+    print("teacher")
     print("Hit 'q' to exit")
     print("")
     askUser = input("Select what program: ")
@@ -33,6 +34,9 @@ def jarvisButtonClick():
 
     if askUser == "results":
         nueron.expectedResults()
+
+    if askUser == "teacher":
+        nueron.teacher()
 
     if askUser == "q":
         print("termination in progress... ")
