@@ -1,16 +1,14 @@
 from openpyxl import Workbook
 import random
+import xlrd
 
 def trainingSet():
-    print("Connection successful")
-
     # TODO Creating data set
     #     1. Data set will be a list of numbers either 0 or 1:
     #     Example 1:
     #           input: 0 1 1       output: 0
     #           input: 1 0 0       output: 1
     #           input: 0 0 0       output: 1
-
 
     # TODO Creating the nueral node class
     #    2. Write a nueral class object
@@ -38,14 +36,13 @@ def trainingSet():
     for i in range(int(val)):
         count = count + 1
         trainingSheet['A' + str(count)] = "G"
+        trainingSheet['B' + str(count)] = 'Y'
 
-    book.save("test.xlsx")
+    book.save("trainingSet.xlsx")
     exit()
 
 
 def testingSet():
-    print("Connection Successful")
-
     book = Workbook()
     testingSheet = book.active
     count = 0
@@ -59,11 +56,24 @@ def testingSet():
 
     for i in range(int(val)):
         count = count + 1
-        testingSheet['A' + str(count)] = str(random.choice(letters))
+        ramdomLetter = str(random.choice(letters))
+        testingSheet['B' + str(count)] = 'N'
+        if ramdomLetter == 'G':
+            testingSheet['B' + str(count)] = 'Y'
+        testingSheet['A' + str(count)] = ramdomLetter
+
+    workbook = xlrd.open_workbook('testingSet.xlsx')
+
 
     book.save("testingSet.xlsx")
     exit()
 
+def expectedResults():
+    # TODO this is where we will create an expected output for training set
+    # TODO also create another training set to give random letters but also if its a G give output of yes
+
+    book = Workbook()
+
+
 def node():
     print("Connection Successful")
-
